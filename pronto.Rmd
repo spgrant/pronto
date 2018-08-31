@@ -1,0 +1,48 @@
+---
+title: "Pronto bikeshare trips"
+author: "Shannon Grant"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+```{r data}
+
+# Pronto trip data downloaded 8/31/18 
+#    https://data.seattle.gov/Community/Pronto-Cycle-Share-Trip-Data/tw7j-dfaw
+ 
+trips <- read_csv("Pronto_Cycle_Share_Trip_Data.csv")
+
+length(rownames(trips))
+
+# want a few variables to plot, for better GitHub and Rprog practice
+head(trips)
+trips$tripyear <- str_sub(trips$starttime, 7,10)
+
+# check for missingness
+summary(trips$birthyear)
+table(trips$gender)
+table(trips$tripyear)
+
+```
+
+
+## Trips by gender and year
+
+The dataset does not include a rider ID.
+
+```{r trip_gender_year, echo=FALSE}
+
+# bar plot with num trips on y-axis, gender on x-axis, facet by trip year
+
+ggplot(data=trips, aes(gender)) +
+  facet_wrap(~tripyear, nrow=2) +
+  geom_bar(aes(fill=gender))
+
+```
+
