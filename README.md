@@ -1,5 +1,5 @@
 # pronto
 
-Practice repo - Seattle Pronto bikeshare
+Practice repo for tutorial: http://happygitwithr.com/
 
-Pronto trip data from: https://data.seattle.gov/Community/Pronto-Cycle-Share-Trip-Data/tw7j-dfaw
+Dataset is Seattle Pronto bikeshare trip data, from: https://data.seattle.gov/Community/Pronto-Cycle-Share-Trip-Data/tw7j-dfaw
